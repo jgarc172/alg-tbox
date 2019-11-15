@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class MaxPairwiseProduct {
-    static int getMaxPairwiseProduct(int[] numbers) {
-        int max_product = 0;
+    static long getMaxPairwiseProduct(long[] numbers) {
+        long max_product = 0;
         int n = numbers.length;
 
         for (int first = 0; first < n; ++first) {
@@ -19,7 +19,7 @@ public class MaxPairwiseProduct {
     public static void main(String[] args) {
         FastScanner scanner = new FastScanner(System.in);
         int n = scanner.nextInt();
-        int[] numbers = new int[n];
+        long[] numbers = new long[n];
         for (int i = 0; i < n; i++) {
             numbers[i] = scanner.nextInt();
         }

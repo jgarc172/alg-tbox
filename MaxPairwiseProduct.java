@@ -5,6 +5,28 @@ public class MaxPairwiseProduct {
     static long getMaxPairwiseProduct(long[] numbers) {
         long max_product = 0;
         int n = numbers.length;
+        long max1 = -1;
+        long max2 = -1;
+        long curr;
+
+        for (int first = 0; first < n; ++first) {
+            curr = numbers[first];
+            if (curr > max1){
+                max2 = max1;
+                max1 = curr;
+            } else {
+                max2 = Math.max(max2, curr);
+            }
+                max_product = Math.max(max_product,
+                    max1 * max2);
+        }
+
+        return max_product;
+    }
+
+    static long getMaxPairwiseProduct2(long[] numbers) {
+        long max_product = 0;
+        int n = numbers.length;
 
         for (int first = 0; first < n; ++first) {
             for (int second = first + 1; second < n; ++second) {

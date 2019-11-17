@@ -2,19 +2,18 @@ import java.util.*;
 
 public class FibonacciLastDigit {
     private static int getFibonacciLastDigitNaive(int n) {
-        if (n <= 1)
-            return n;
-
-        int previous = 0;
-        int current  = 1;
-
-        for (int i = 0; i < n - 1; ++i) {
-            int tmp_previous = previous;
-            previous = current;
-            current = tmp_previous + current;
+        int[] fib = new int[3];
+        fib[0] = 0;
+        fib[1] = 1;
+        if (n < 2) {
+          return fib[n];
         }
-
-        return current % 10;
+        for (int i = 2; i <= n; i++) {
+          fib[2] = (fib[1] + fib[0]) % 10;
+          fib[0] = fib[1];
+          fib[1] = fib[2];
+        }
+        return fib[2];
     }
     
     public static void main(String[] args) {
